@@ -1,176 +1,201 @@
-import * as React from "react"
+import React from 'react'
+import LayoutStart from '../components/start/LayoutStart'
+import ButtonGlobal from '../components/ButtonGlobal'
+import { graphql, Link } from 'gatsby'
+import { StaticImage } from "gatsby-plugin-image"
+import { GiBackPain, GiShrimp, GiStopSign } from "react-icons/gi"
+import { FaUserInjured, FaFlagCheckered, FaRunning, FaStar, FaCalendarAlt, FaSortDown, FaUserCheck } from "react-icons/fa"
 
-const pageStyles = {
-  color: "#232129",
-  padding: 96,
-  fontFamily: "-apple-system, Roboto, sans-serif, serif",
-}
-const headingStyles = {
-  marginTop: 0,
-  marginBottom: 64,
-  maxWidth: 320,
-}
-const headingAccentStyles = {
-  color: "#663399",
-}
-const paragraphStyles = {
-  marginBottom: 48,
-}
-const codeStyles = {
-  color: "#8A6534",
-  padding: 4,
-  backgroundColor: "#FFF4DB",
-  fontSize: "1.25rem",
-  borderRadius: 4,
-}
-const listStyles = {
-  marginBottom: 96,
-  paddingLeft: 0,
-}
-const listItemStyles = {
-  fontWeight: 300,
-  fontSize: 24,
-  maxWidth: 560,
-  marginBottom: 30,
+// Randomowe sortowanie referencji algorytmem Fisher-Yates'a
+function shuffle(array) {
+  const length = array == null ? 0 : array.length;
+
+  if (!length) {
+    return [];
+  }
+
+  let index = -1;
+
+  const lastIndex = length - 1;
+  const result = [...array];
+
+  while (++index < length) {
+    const rand = index + Math.floor(Math.random() * (lastIndex - index + 1));
+    const value = result[rand];
+    result[rand] = result[index];
+    result[index] = value;
+  }
+
+  return result;
 }
 
-const linkStyle = {
-  color: "#8954A8",
-  fontWeight: "bold",
-  fontSize: 16,
-  verticalAlign: "5%",
-}
+export default function Home({ data }) {
 
-const docLinkStyle = {
-  ...linkStyle,
-  listStyleType: "none",
-  marginBottom: 24,
-}
-
-const descriptionStyle = {
-  color: "#232129",
-  fontSize: 14,
-  marginTop: 10,
-  marginBottom: 0,
-  lineHeight: 1.25,
-}
-
-const docLink = {
-  text: "Documentation",
-  url: "https://www.gatsbyjs.com/docs/",
-  color: "#8954A8",
-}
-
-const badgeStyle = {
-  color: "#fff",
-  backgroundColor: "#088413",
-  border: "1px solid #088413",
-  fontSize: 11,
-  fontWeight: "bold",
-  letterSpacing: 1,
-  borderRadius: 4,
-  padding: "4px 6px",
-  display: "inline-block",
-  position: "relative",
-  top: -2,
-  marginLeft: 10,
-  lineHeight: 1,
-}
-
-const links = [
-  {
-    text: "Tutorial",
-    url: "https://www.gatsbyjs.com/docs/tutorial/",
-    description:
-      "A great place to get started if you're new to web development. Designed to guide you through setting up your first Gatsby site.",
-    color: "#E95800",
-  },
-  {
-    text: "How to Guides",
-    url: "https://www.gatsbyjs.com/docs/how-to/",
-    description:
-      "Practical step-by-step guides to help you achieve a specific goal. Most useful when you're trying to get something done.",
-    color: "#1099A8",
-  },
-  {
-    text: "Reference Guides",
-    url: "https://www.gatsbyjs.com/docs/reference/",
-    description:
-      "Nitty-gritty technical descriptions of how Gatsby works. Most useful when you need detailed information about Gatsby's APIs.",
-    color: "#BC027F",
-  },
-  {
-    text: "Conceptual Guides",
-    url: "https://www.gatsbyjs.com/docs/conceptual/",
-    description:
-      "Big-picture explanations of higher-level Gatsby concepts. Most useful for building understanding of a particular topic.",
-    color: "#0D96F2",
-  },
-  {
-    text: "Plugin Library",
-    url: "https://www.gatsbyjs.com/plugins",
-    description:
-      "Add functionality and customize your Gatsby site or app with thousands of plugins built by our amazing developer community.",
-    color: "#8EB814",
-  },
-  {
-    text: "Build and Host",
-    url: "https://www.gatsbyjs.com/cloud",
-    badge: true,
-    description:
-      "Now you’re ready to show the world! Give your Gatsby site superpowers: Build and host on Gatsby Cloud. Get started for free!",
-    color: "#663399",
-  },
-]
-
-const IndexPage = () => {
+  const feedback = shuffle(data.feedback.nodes).slice(0, 1);
+  
   return (
-    <main style={pageStyles}>
-      <h1 style={headingStyles}>
-        Congratulations
-        <br />
-        <span style={headingAccentStyles}>— you just made a Gatsby site! 🎉🎉🎉</span>
-      </h1>
-      <p style={paragraphStyles}>
-        Edit <code style={codeStyles}>src/pages/index.js</code> to see this page
-        update in real-time. 😎
-      </p>
-      <ul style={listStyles}>
-        <li style={docLinkStyle}>
-          <a
-            style={linkStyle}
-            href={`${docLink.url}?utm_source=starter&utm_medium=start-page&utm_campaign=minimal-starter`}
-          >
-            {docLink.text}
-          </a>
-        </li>
-        {links.map(link => (
-          <li key={link.url} style={{ ...listItemStyles, color: link.color }}>
-            <span>
-              <a
-                style={linkStyle}
-                href={`${link.url}?utm_source=starter&utm_medium=start-page&utm_campaign=minimal-starter`}
-              >
-                {link.text}
-              </a>
-              {link.badge && (
-                <span style={badgeStyle} aria-label="New Badge">
-                  NEW!
-                </span>
-              )}
-              <p style={descriptionStyle}>{link.description}</p>
-            </span>
-          </li>
-        ))}
-      </ul>
-      <img
-        alt="Gatsby G Logo"
-        src="data:image/svg+xml,%3Csvg width='24' height='24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M12 2a10 10 0 110 20 10 10 0 010-20zm0 2c-3.73 0-6.86 2.55-7.75 6L14 19.75c3.45-.89 6-4.02 6-7.75h-5.25v1.5h3.45a6.37 6.37 0 01-3.89 4.44L6.06 9.69C7 7.31 9.3 5.63 12 5.63c2.13 0 4 1.04 5.18 2.65l1.23-1.06A7.959 7.959 0 0012 4zm-8 8a8 8 0 008 8c.04 0 .09 0-8-8z' fill='%23639'/%3E%3C/svg%3E"
-      />
-    </main>
-  )
+    <LayoutStart>
+
+      {/* sekcja 2 - kim jest klient? */}
+      <div className='index_box' id="s2">
+        <h2 className='index_header'>Fizjoterapia i trening dla zasiedzianych</h2>
+        <div className='index_subheader'>Czy jesteś we właściwym miejscu?</div>
+        <p className='index_paragraph'>Fizjoterapia i trening to kompletny zestaw terapeutyczno-ruchowy, którego potrzebujesz. Skąd to wiem? Zbudowałem to miejsce dla osób takich jak Ty. Mogę się mylić, dlatego sprawdźmy czy faktycznie jesteś we właściwym miejscu. Jeśli chociaż jedno z poniższych stwierdzeń dotyczy Ciebie to zostajesz tu na dłużej i czytasz dalej, zgoda?</p>
+        <div className='s2_grid_box'>
+          <div className='s2_grid_item'>
+            <span className='s2_grid_icon'><GiBackPain size="2em"/></span>
+            <span className='s2_grid_signature'>cierpisz z powodu bólu pleców</span>
+          </div>
+          <div className='s2_grid_item'>
+            <span className='s2_grid_icon'><FaUserInjured size="2em"/></span>
+            <span className='s2_grid_signature'>nękają Cię kontuzje i/lub urazy</span>
+          </div>
+          <div className='s2_grid_item'>
+            <span className='s2_grid_icon'><FaFlagCheckered size="2em"/></span>
+            <span className='s2_grid_signature'>posiadasz ulotną motywację do ćwiczeń</span>
+          </div>
+          <div className='s2_grid_item'>
+            <span className='s2_grid_icon'><FaRunning size="2em"/></span>
+            <span className='s2_grid_signature'>Twoja technika ćwiczeń wymaga poprawy</span>
+          </div>
+          <div className='s2_grid_item'>
+            <span className='s2_grid_icon'><GiShrimp size="2em"/></span>
+            <span className='s2_grid_signature'>irytuje Cię Twoja zgarbiona sylwetka</span>
+          </div>
+          <div className='s2_grid_item'>
+            <span className='s2_grid_icon'><GiStopSign size="2em"/></span>
+            <span className='s2_grid_signature'>masz opór przed wykonywaniem ćwiczeń</span>
+          </div>
+        </div>
+        <p className='index_paragraph'>Wielu za nas nie potrafi samodzielnie poradzić sobie z bólem, niewiedzą czy motywacją. To normalne. Jesteśmy ludźmi, mamy swoje wzloty i upadki. Czasem potrzebujemy kogoś, kto poprowadzi nas i wesprze na drodze ku byciu zdrowszym i szczęśliwszym.</p>
+        <div className='index_button_box'>
+          <div className='index_button'>
+            <ButtonGlobal
+              slug='/rezerwacja'
+              name='Umów wizytę'
+              icon={<FaCalendarAlt />}
+            />
+          </div>
+          <div className='index_button'>
+            <ButtonGlobal
+              slug='/#s3'
+              name='Przewiń dalej'
+              bc='var(--color-6)'
+              fc='var(--color-7)'
+              hbc='var(--color-3)'
+              icon={<FaSortDown />}
+            />
+          </div>
+        </div>
+      </div>
+
+      {/* sekcja 3 - czego potrzebuje klient? */}
+      <div className='index_box s3_box' id="s3">
+        <h2 className='index_header'>Fizjoterapia i trening - zestaw kompletny</h2>
+        <div className='index_subheader'>Odzyskaj kontrolę nad sprawnym ciałem</div>
+        <div className='offer_box'>
+          <div className='offer_item'>
+            <StaticImage className='offer_image' src="../images/oferta/fizjoterapia-bol-plecow.jpg" alt="Fizjoterapia i Trening Personalny | Warszawa" />
+            <div className='offer_content'>
+              <h3 className='offer_title'>Fizjoterapia bólu pleców</h3>
+              <p className='offer_description'>To jest opis usługi, który znajduje się w tym pudełku. Znajduje się tutaj streszczenie opisu usług, który zostanie rozwinięty na stronie docelowej, która jest landing pagem. <Link to='fizjoterapia-bolu-plecow' className='offer_link'>czytaj dalej</Link>
+              </p>
+            </div>
+          </div>
+          <div className='offer_item'>
+            <StaticImage className='offer_image' src="../images/oferta/trening-medyczny.jpg" alt="Trening medyczny z fizjoterapeutą" />
+            <div className='offer_content'>
+              <h3 className='offer_title'>Trening medyczny</h3>
+              <p className='offer_description'>To jest opis usługi, który znajduje się w tym pudełku. Znajduje się tutaj streszczenie opisu usług, który zostanie rozwinięty na stronie docelowej, która jest landing pagem. <Link to='trening-medyczny' className='offer_link'>czytaj dalej</Link>
+              </p>
+            </div>
+          </div>
+          <div className='offer_item'>
+            <StaticImage className='offer_image' src="../images/oferta/trening-personalny.jpg" alt="Trening personalny z fizjoterapeutą" />
+            <div className='offer_content'>
+              <h3 className='offer_title'>Trening personalny</h3>
+              <p className='offer_description'>To jest opis usługi, który znajduje się w tym pudełku. Znajduje się tutaj streszczenie opisu usług, który zostanie rozwinięty na stronie docelowej, która jest landing pagem. <Link to='trening-personalny' className='offer_link'>czytaj dalej</Link>
+              </p>
+            </div>
+          </div>
+        </div>
+        <div className='index_button_box'>
+          <div className='index_button'>
+            <ButtonGlobal
+              slug='/rezerwacja'
+              name='Umów wizytę'
+              icon={<FaCalendarAlt />}
+            />
+          </div>
+          <div className='index_button'>
+            <ButtonGlobal
+              slug='/#s4'
+              name='Przewiń dalej'
+              bc='var(--color-8)'
+              fc='var(--color-7)'
+              hbc='var(--color-6)'
+              icon={<FaSortDown />}
+            />
+          </div>
+        </div>
+      </div>
+
+      {/* sekcja 4 - rekomendacje klientów */}
+      <div className='index_box s4_box' id="s4">
+        <h2 className='index_header'>Fizjoterapia i trening w praktyce</h2>
+        <div className='index_subheader s4_header'>Rekomendacje osób, które już skorzystały z usług*</div>
+        <div className='feed_box'>
+          {feedback.map((feedback, index) => (
+            <div key={index}>
+              <div className='feed_stars'><FaStar /> <FaStar /> <FaStar /> <FaStar /> <FaStar /></div>
+              <div className='feed_text'>{feedback.frontmatter.opinion}</div>
+              <div className='feed_client'>{feedback.frontmatter.client}</div>
+              <div className='feed_job'>{feedback.frontmatter.profession}</div>
+            </div>
+            ))}
+        </div>
+        <p className='index_paragraph s4_paragraph'>*Cytowane słowa pochodzą z wizytówki umieszczonej w serwisie Google Maps; profilów w serwisie Facebook, Instagram, Znany Lekarz oraz wiadomości prywatnych.</p>
+        <div className='index_button_box'>
+          <div className='index_button'>
+            <ButtonGlobal
+              slug='/rezerwacja'
+              name='Umów wizytę'
+              icon={<FaCalendarAlt />}
+            />
+          </div>
+          <div className='index_button'>
+            <ButtonGlobal
+              slug='/#s4'
+              name='Losowa rekomendacja'
+              bc='var(--color-8)'
+              fc='var(--color-7)'
+              hbc='var(--color-3)'
+              icon={<FaUserCheck />}
+            />
+          </div>
+        </div>
+      </div>
+
+      {/* sekcja 4 - rekomendacje klientów */}
+      <div className='index_box' id="s5">
+        <h2 className='index_header'>Fizjoterapia i trening w mediach społecznościowych</h2>
+        <div className='index_subheader'>Opinie osób, które już skorzystały z usług*</div>
+      </div>
+    </LayoutStart>
+  );
 }
 
-export default IndexPage
-
-export const Head = () => <title>Home Page</title>
+export const query = graphql`
+query Home {
+  feedback: allMarkdownRemark(filter: {fileAbsolutePath: {regex: "/(feedback)/"}}) {
+    nodes {
+      frontmatter {
+        client
+        profession
+        opinion
+        source
+      }
+    }
+  }
+}
+`

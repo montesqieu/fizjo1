@@ -1,0 +1,209 @@
+/* Parametry ogólne */
+.index_box {
+  padding: 60px;
+  text-align: center;
+}
+.index_header {
+  text-transform: uppercase;
+  font-size: .875em;
+  font-weight: 700;
+  color: var(--color-1);
+}
+.index_subheader {
+  font-size: 2em;
+  font-weight: 700;
+  margin: 0.5em 0 1em 0;
+}
+.index_paragraph {
+  font-size: .875em;
+  line-height: 2em;
+}
+.index_button_box {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-top: 3em;
+}
+.index_button {
+  display: flex;
+  justify-content: center;
+  margin-right: 1em;
+}
+
+/* Sekcja powitalna z nagłówkiem */
+.s1_box {
+  display: grid;
+  grid-template-columns: 40% 60%;
+  padding: 0 60px;
+  margin-top: 20px;
+}
+.s1_left {
+  padding-top: 20px;
+  color: var(--color-6);
+}
+.s1_right {
+  align-self: end;
+  justify-self: end;
+}
+.s1_subheader {
+  text-transform: uppercase;
+  font-size: .875em;
+  font-weight: 500;
+}
+.s1_header {
+  font-size: 2em;
+  font-weight: 700;
+  margin: 0.5em 0 1em 0;
+}
+.s1_description {
+  font-size: .875em;
+  font-weight: 300;
+  line-height: 2em;
+}
+.s1_button_box {
+  display: flex;
+  flex-direction: row;
+  margin-top: 3em;
+}
+.s1_button {
+  margin-right: 1em;
+}
+
+/* Sekcja druga */
+.s2_grid_box {
+  display: grid;
+  row-gap: 1em;
+  column-gap: 1em;
+  margin: 2em 0;
+  grid-template-columns: auto auto auto;
+}
+.s2_grid_item {
+  display: flex;
+  flex-direction: row;
+  box-shadow: 1px 1px 5px #888888;
+  border-radius: 4px;
+}
+.s2_grid_icon {
+  color: #349eff;
+  padding: 1em;
+  justify-self: center;
+  align-self: center;
+}
+.s2_grid_signature {
+  text-transform: uppercase;
+  justify-self: center;
+  align-self: center;
+  padding: 1em;
+  font-size: 0.8125em;
+  font-weight: 600;
+  line-height: 1.5em;
+}
+
+/* Sekcja trzecia */
+.s3_box {
+  background-color: var(--color-3);
+}
+.offer_box {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  column-gap: 1em;
+  margin-top: 3em;
+}
+.offer_item {
+  box-shadow: 0px 0px 4px var(--color-7);
+  border-radius: 0.5em;
+  background-color: var(--color-8);
+}
+.offer_image {
+  border-top-left-radius: 0.5em;
+  border-top-right-radius: 0.5em;
+}
+.offer_content {
+  background-color: var(--color-8);
+  border-bottom-left-radius: 0.5em;
+  border-bottom-right-radius: 0.5em;
+}
+.offer_title {
+  display: inline;
+  background-color: transparent;
+  position: relative;
+  bottom: 0.75em;
+  font-size: 1em;
+  text-transform: uppercase;
+  background-color: var(--color-8);
+  padding: 0.5em 0.75em;
+  border-radius: 0.5em;
+  box-shadow: 0px 0px 4px var(--color-7);
+}
+.offer_description {
+  padding: 0.5em 1em 1em 1em;
+  font-size: 0.875em;
+  line-height: 1.5em;
+  text-align: justify;
+}
+.offer_link {
+  display: block;
+  text-align: right;
+  transition: all 200ms ease-in;
+  font-weight: 600;
+  font-size: 0.875em;
+  text-transform: uppercase;
+  color: var(--color-7);
+}
+.offer_link:hover {
+  color: var(--color-1);
+  cursor: pointer;
+}
+
+/* Sekcja czwarta */
+.s4_box {
+  background-color: var(--color-7);
+}
+.s4_header {
+  color: var(--color-8);
+}
+.s4_paragraph {
+  color: var(--color-8);
+  font-size: 0.75em;
+  margin-top: 3em;
+}
+.feed_box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-8);
+  min-height: 240px;
+  box-shadow: 0px 0px 4px var(--color-8);
+  border-radius: 10px;
+  padding: 1em;
+  margin-top: 3em;
+}
+.feed_stars {
+  color: gold;
+  font-size: 1.5em;
+}
+.feed_text {
+  font-size: .875em;
+  font-style: italic;
+  font-weight: 500;
+  line-height: 2em;
+  margin: 1em 2em 2em 2em;
+}
+.feed_client {
+  font-size: 1.125em;
+  font-weight: 600;
+}
+.feed_job {
+  font-size: .740em;
+  font-weight: 400;
+  margin: 0.5em 0;
+}
+
+@media only screen and (max-width: 768px) {
+
+  /* Nagłówek strony zawierający logo oraz menu główne */
+  .xyz {
+    padding: 10px;
+  }
+
+}
