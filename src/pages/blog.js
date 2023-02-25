@@ -3,10 +3,8 @@ import React from 'react'
 import LayoutGlobal from '../components/LayoutGlobal'
 import { GatsbyImage } from "gatsby-plugin-image"
 import { FaCalendarAlt, FaUserAlt } from "react-icons/fa"
-import '../styles/global.css'
 
 export default function Blog({ data }) {
-  console.log(data.article.nodes)
 
   const articles = data.article.nodes
   return (

@@ -19,6 +19,7 @@ export default function HeaderStart() {
             <div className='s1_button'>
               <ButtonGlobal
                 slug ='/rezerwacja'
+                style='btn'
                 name='Umów wizytę'
                 icon={<FaCalendarAlt />}
               />
@@ -26,10 +27,8 @@ export default function HeaderStart() {
             <div className='s1_button'>
               <ButtonGlobal
                 slug ='#s2'
+                style='btn2'
                 name='Przewiń dalej'
-                bc='var(--color-8)'
-                fc='var(--color-7)'
-                hbc='var(--color-3)'
                 icon={<FaSortDown />}
               />
             </div>

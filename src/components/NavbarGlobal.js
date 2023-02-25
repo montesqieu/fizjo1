@@ -2,7 +2,7 @@ import React from 'react'
 import ButtonGlobal from './ButtonGlobal'
 import { Link } from 'gatsby'
 import { StaticImage } from "gatsby-plugin-image"
-import { FaCaretDown } from "react-icons/fa"
+import { FaCaretDown, FaCalendarAlt } from "react-icons/fa"
 import '../styles/global.css'
 
 export default function NavbarGlobal() {
@@ -42,7 +42,12 @@ export default function NavbarGlobal() {
             <a className='mobile_link' href="https://fizjopersonalny.sklep.pl/" target="_blank" rel="noreferrer">SKLEP</a>
             <Link className='mobile_link' to="/kontakt">KONTAKT</Link>
             <div className='mobile_button'>
-              <ButtonGlobal slug ="/rezerwacja" name="Umów wizytę" />
+              <ButtonGlobal
+                slug='/rezerwacja'
+                style='btn'
+                name='Umów wizytę'
+                icon={<FaCalendarAlt />}
+              />
             </div>
           </div>
         </div>

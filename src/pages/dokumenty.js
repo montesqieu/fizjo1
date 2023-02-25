@@ -3,7 +3,6 @@ import LayoutGlobal from '../components/LayoutGlobal'
 import ToggleGlobal from '../components/ToggleGlobal'
 import { FaFileAlt, FaClipboardCheck } from "react-icons/fa"
 import { GrAttachment } from "react-icons/gr"
-import '../styles/global.css'
 
 export default function Dokumenty() {
   return (

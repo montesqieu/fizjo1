@@ -3,7 +3,6 @@ import LayoutGlobal from '../components/LayoutGlobal'
 import { Link, graphql } from "gatsby"
 import { GatsbyImage } from "gatsby-plugin-image"
 import { FaCalendarAlt, FaUserAlt } from "react-icons/fa"
-import '../styles/global.css'
 
 export default function BlogTags({ data, pageContext }) {
   const { tag } = pageContext

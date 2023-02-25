@@ -4,7 +4,6 @@ import LayoutGlobal from '../components/LayoutGlobal'
 import { GatsbyImage } from "gatsby-plugin-image"
 import { graphql, Link } from 'gatsby'
 import { FaCalendarAlt, FaUserAlt, FaTags, FaCaretRight, FaCaretLeft } from "react-icons/fa"
-import '../styles/global.css'
 
 export default function BlogArticle({ data, pageContext }) {
   console.log(data.artDetails.frontmatter)

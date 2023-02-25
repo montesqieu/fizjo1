@@ -1,6 +1,5 @@
 import React from 'react'
 import LayoutGlobal from '../components/LayoutGlobal'
-import '../styles/global.css'
 
 export default function About() {
   return (

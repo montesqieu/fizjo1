@@ -72,6 +72,7 @@ export default function Home({ data }) {
           <div className='index_button'>
             <ButtonGlobal
               slug='/rezerwacja'
+              style='btn'
               name='Umów wizytę'
               icon={<FaCalendarAlt />}
             />
@@ -79,10 +80,8 @@ export default function Home({ data }) {
           <div className='index_button'>
             <ButtonGlobal
               slug='/#s3'
+              style='btn2'
               name='Przewiń dalej'
-              bc='var(--color-6)'
-              fc='var(--color-7)'
-              hbc='var(--color-3)'
               icon={<FaSortDown />}
             />
           </div>
@@ -123,6 +122,7 @@ export default function Home({ data }) {
           <div className='index_button'>
             <ButtonGlobal
               slug='/rezerwacja'
+              style='btn'
               name='Umów wizytę'
               icon={<FaCalendarAlt />}
             />
@@ -130,10 +130,8 @@ export default function Home({ data }) {
           <div className='index_button'>
             <ButtonGlobal
               slug='/#s4'
+              style='btn2'
               name='Przewiń dalej'
-              bc='var(--color-8)'
-              fc='var(--color-7)'
-              hbc='var(--color-6)'
               icon={<FaSortDown />}
             />
           </div>
@@ -160,16 +158,15 @@ export default function Home({ data }) {
             <ButtonGlobal
               slug='/rezerwacja'
               name='Umów wizytę'
+              style='btn'
               icon={<FaCalendarAlt />}
             />
           </div>
           <div className='index_button'>
             <ButtonGlobal
               slug='/#s4'
+              style='btn2'
               name='Losowa rekomendacja'
-              bc='var(--color-8)'
-              fc='var(--color-7)'
-              hbc='var(--color-3)'
               icon={<FaUserCheck />}
             />
           </div>

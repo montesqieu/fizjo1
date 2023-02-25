@@ -1,7 +1,6 @@
 import React from 'react'
 import { Link } from 'gatsby'
 import LayoutGlobal from '../components/LayoutGlobal'
-import '../styles/global.css'
 
 export default function TreningMedyczny() {
   return (

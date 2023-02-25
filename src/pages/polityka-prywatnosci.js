@@ -1,7 +1,6 @@
 import React from 'react'
 import LayoutGlobal from '../components/LayoutGlobal'
 import ToggleGlobal from '../components/ToggleGlobal'
-import '../styles/global.css'
 
 export default function PolitykaPrywatnosci() {
   return (

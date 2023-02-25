@@ -2,7 +2,6 @@ import React from 'react'
 import { Link } from 'gatsby'
 import LayoutGlobal from '../components/LayoutGlobal'
 import ToggleGlobal from '../components/ToggleGlobal'
-import '../styles/global.css'
 
 export default function RegulaminStudia() {
   return (
