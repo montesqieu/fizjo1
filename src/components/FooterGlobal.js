@@ -1,5 +1,4 @@
 import React from 'react'
-import ButtonGlobal from './ButtonGlobal'
 import { Link } from 'gatsby'
 import { StaticImage } from "gatsby-plugin-image"
 import { FaPaperPlane } from "react-icons/fa"
@@ -16,37 +15,34 @@ export default function FooterGlobal() {
               <StaticImage src="../images/logo-50x225.png" alt="Fizjoterapia i Trening Personalny | Warszawa"/>
             </Link>
           </div>
-          <div className='footer_newsletter'>
-            <span>Dołącz do newsletter'a i otrzymuj wiadomości o nowych materiałach.</span>
-            <ButtonGlobal
-              slug ="/newsletter"
-              style='btn'
-              name="Zapisuję się"
-              icon={<FaPaperPlane />}
-            />
+          <div className='footer_news'>
+            <p>Dołącz do newsletter'a i otrzymuj wiadomości o nowych materiałach.</p>
+            <a href="https://fizjopersonalny.sklep.pl/newsletter/" target="_blank" rel="noreferrer" className='btn'>
+              Zapisuję się <span><FaPaperPlane /></span>
+            </a>
           </div>
         </div>
 
         <div className='footer_item'>
-          <div className='footer_header'>Użyteczne Linki</div>
+          <div className='footer_header'>zacznij tutaj</div>
           <div className='footer_menu'>
-            <Link to="/wizyta">Pierwsza wizyta</Link>
+            <Link to="/cennik">Aktualny cennik</Link>
             <Link to="/studio">Zobacz Studio</Link>
-            <Link to="/cennik">Cennik</Link>
+            <Link to="/wizyta">Pierwsza wizyta</Link>
           </div>
         </div>
 
         <div className='footer_item'>
-          <div className='footer_header'>Użyteczne Linki</div>
+          <div className='footer_header'>Popularne usługi</div>
           <div className='footer_menu'>
-              <a href="https://www.instagram.com/FizjoPersonalny/" target="_blank" rel="noreferrer">Instagram</a>
-              <a href="https://www.youtube.com/c/fizjopersonalny" target="_blank" rel="noreferrer">YouTube</a>
-              <a href="https://www.facebook.com/FizjoPersonalny/" target="_blank" rel="noreferrer">Facebook</a>
+            <Link to="/fizjoterapia-bolu-plecow">Fizjoterapia bólu pleców</Link>
+            <Link to="/trening-personalny">Trening personalny</Link>
+            <Link to="/masaz-leczniczy">Masaż leczniczy</Link>
           </div>
         </div>
 
         <div className='footer_item'>
-          <div className='footer_header'>Media społecznościowe</div>
+          <div className='footer_header'>Social media</div>
           <div className='footer_menu'>
               <a href="https://www.instagram.com/FizjoPersonalny/" target="_blank" rel="noreferrer">Instagram</a>
               <a href="https://www.youtube.com/c/fizjopersonalny" target="_blank" rel="noreferrer">YouTube</a>
@@ -64,6 +60,7 @@ export default function FooterGlobal() {
           <Link to="/regulamin-studia">Regulamin Studia</Link>
           <Link to="/polityka-prywatnosci">Polityka Prywatności</Link>
           <Link to="/dokumenty">Dokumenty</Link>
+          <Link to="/dokumenty">Mapa</Link>
         </div>
 
       </div>
